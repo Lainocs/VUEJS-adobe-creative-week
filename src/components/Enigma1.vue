@@ -1,4 +1,5 @@
 <template>
+    <div class="card">
         <div class="squelette">
             <!-- à remplacer par des images -->
             <p v-if="era == 'Victorienne'">IMAGE DE SQUELETTE avec chiffres cachés '84'</p>
@@ -8,8 +9,9 @@
     
         <input type="text" maxlength="6" v-model="code">
         <div v-if="error == true">
-            Le code est faux
+            Le code de la boîte est faux
         </div>
+    </div>
 </template>
 
 <script>
@@ -43,3 +45,10 @@
         }
     }
 </script>
+
+<style>
+    .card {
+        padding: 50px;
+        background-color: rgba(322, 322, 322, 0.5);
+    }
+</style>

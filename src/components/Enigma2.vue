@@ -1,5 +1,7 @@
 <template>
-    enigme 2
+    <div class="card">
+        enigme 2
+    </div>
 </template>
 
 <script>
@@ -10,3 +12,10 @@
         ],
     }
 </script>
+
+<style>
+    .card {
+        padding: 50px;
+        background-color: rgba(322, 322, 322, 0.5);
+    }
+</style>

@@ -1,15 +1,19 @@
 <template>
 
-  <Hangman @enigma="getEnigma" v-if="enigma == 0 && era == 'Victorienne'" :era="era"/>
+  <div class="screen">
+    <div id="content">
+      <Hangman @enigma="getEnigma" v-if="enigma == 0 && era == 'Victorienne'" :era="era"/>
+      <Enigma1 @enigma="getEnigma" v-if="enigma == 1" :era="era" />
+      <Enigma2 v-if="enigma == 2" :era="era" />
+    </div>
 
-  <Enigma1 @enigma="getEnigma" v-if="enigma == 1" :era="era" />
-  <Enigma2 v-if="enigma == 2" :era="era" />
-
-  
-  <div>
-    {{era}}
-    <button @click="changeEra">CHANGER D'EPOQUE</button>
+    
+    <div class="era">
+      {{era}}
+      <button @click="changeEra">CHANGER D'EPOQUE</button>
+    </div>
   </div>
+  
 </template>
 
 <script>
@@ -49,12 +53,42 @@ export default {
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url('assets/musee.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+}
+
+.screen {
+  height: 90vh;
+  width: 90vw;
+  flex-direction: column;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#content {
+  min-height: 80vh;
+}
+
+.era {
+  height: 10vh;
 }
 </style>
