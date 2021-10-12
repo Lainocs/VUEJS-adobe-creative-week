@@ -1,6 +1,8 @@
 <template>
 
-  <Enigma1 @enigma="getEnigma1" v-if="enigma == 1" :era="era" />
+  <Hangman @enigma="getEnigma" v-if="enigma == 0 && era == 'Victorienne'" :era="era"/>
+
+  <Enigma1 @enigma="getEnigma" v-if="enigma == 1" :era="era" />
   <Enigma2 v-if="enigma == 2" :era="era" />
 
   
@@ -13,18 +15,20 @@
 <script>
 import Enigma1 from './components/Enigma1.vue'
 import Enigma2 from './components/Enigma2.vue'
+import Hangman from './components/Hangman.vue'
 
 export default {
   name: 'App',
 
   components: {
+    Hangman,
     Enigma1,
     Enigma2,
   },
   data() {
     return {
       era: 'Victorienne',
-      enigma: 1
+      enigma: 0
     }
   },
   methods: {
@@ -37,7 +41,7 @@ export default {
         this.era = 'Victorienne'
       }
     },
-    getEnigma1(value) {
+    getEnigma(value) {
       this.enigma = value
     }
   },
