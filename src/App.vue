@@ -40,8 +40,6 @@ export default {
       if(this.era == 'Victorienne') {
         this.era = 'Années 60'
       } else if(this.era == 'Années 60') {
-        this.era = 'Futur'
-      } else if(this.era == 'Futur'){
         this.era = 'Victorienne'
       }
     },

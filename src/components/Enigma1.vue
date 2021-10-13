@@ -2,9 +2,8 @@
     <div class="card">
         <div class="squelette">
             <!-- à remplacer par des images -->
-            <p v-if="era == 'Victorienne'">IMAGE DE SQUELETTE avec chiffres cachés '84'</p>
-            <p v-if="era == 'Années 60'">IMAGE DE MANNEQUIN avec chiffres cachés '32'</p>
-            <p v-if="era == 'Futur'">IMAGE DE ROBOT avec chiffres cachés '96'</p>
+            <p v-if="era == 'Victorienne'">IMAGE DE SQUELETTE avec chiffres cachés '841'</p>
+            <p v-if="era == 'Années 60'">IMAGE DE MANNEQUIN avec chiffres cachés '326'</p>
         </div>
     
         <input type="text" maxlength="6" v-model="code">
