@@ -69,6 +69,7 @@
             let allletters = displayletters.replace(/,/g, '')
             if(allletters == 'SQUELETTE') {
                 this.$emit('enigma', '1')
+                this.$emit('view1', false)
             }
             this.console = 'La lettre ' + letter
             },

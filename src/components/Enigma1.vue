@@ -27,9 +27,10 @@
         },
         methods: {
             verifyCode() {
-                if (this.code == 843296) {
+                if (this.code == 841326) {
                     this.error = false
                     this.$emit('enigma', '2')
+                    this.$emit('view2', false)
                 } else {
                     this.error = true
                 }
