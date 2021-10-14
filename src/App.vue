@@ -2,22 +2,26 @@
   <div class="screen">
     <div v-if="game == false">
 
-
         <div v-if="startMenu">
 
-          <h2>ecran de debut</h2>
-          <button @click="startGame()">START</button>
+          <StartMenu />
+          <button class="start-button" @click="startGame()">START</button>
 
         </div>
 
 
         <div v-if="endMenu">
-          ecran de fin
+
+          <EndMenu />
+
         </div>
+
+
     </div>
     <div v-else>
       <div id="content">
         <div class="era-title">{{era}}</div>
+        {{enigma}}
         <div @click="clicked1" class="border-enigma-1" v-if="enigma == 0 && era == 'Victorienne' && border1 == true"></div>
         <Hangman @enigma="getEnigma" v-if="enigma == 0 && view1 == true && era == 'Victorienne' && border1 == false" :era="era"/>
 
@@ -28,6 +32,11 @@
 
         <div @click="clicked3" class="border-enigma-3" v-if="enigma == 2 && era == 'Années 60' && border3 == true"></div>
         <Enigma2 @enigma="getEnigma" v-if="enigma == 2 && view3 == true" :era="era" />
+
+        <img v-if="enigma == 3" :src="key" alt="key" style="width: 500px; height: auto;">
+
+        <div @click="clicked4" class="border-enigma-4" v-if="enigma == 3 && era == 'Années 60' && border4 == true"></div>
+
       </div>
       <div class="era">
         <button @click="changeEra">Voyager dans le temps</button>
@@ -41,11 +50,15 @@
 import Enigma1 from './components/Enigma1.vue'
 import Enigma2 from './components/Enigma2.vue'
 import Hangman from './components/Hangman.vue'
+import StartMenu from './components/StartMenu.vue'
+import EndMenu from './components/EndMenu.vue'
 
 export default {
   name: 'App',
 
   components: {
+    StartMenu,
+    EndMenu,
     Hangman,
     Enigma1,
     Enigma2,
@@ -57,6 +70,7 @@ export default {
       endMenu: false,
 
       bijoux: "/img/bijoux.7b77d87b.jpeg",
+      key: "",
 
       era: 'Victorienne',
       enigma: 0,
@@ -68,14 +82,17 @@ export default {
       view2: false,
 
       border3: true,
-      view3: false
+      view3: false,
+
+      border4: true,
     }
   },
   methods: {
+
     startGame() {
-      document.getElementById("app").style.backgroundImage = "url('/img/musee.5735396c.jpg')";
-      this.game = true
-      this.startMenu = false
+        document.getElementById("app").style.backgroundImage = "url('/img/musee.5735396c.jpg')";
+        this.game = true
+        this.startMenu = false
     },
     changeEra() {
       if(this.era == 'Victorienne') {
@@ -103,6 +120,12 @@ export default {
     clicked3() {
       this.border3 = false
       this.view3 = true
+    },
+    clicked4() {
+      this.border3 = false
+      document.getElementById("app").style.backgroundImage = "url('/img/salon.5d04a135.jpg')";
+      this.game = false
+      this.endMenu = true
     },
   },
 }
@@ -142,6 +165,11 @@ export default {
   justify-content: center;
 }
 
+.start-button {
+  width: 10vw;
+  height: 10vh;
+}
+
 #content {
   min-height: 80vh;
 }
@@ -178,6 +206,16 @@ export default {
   width: 90px;
   height: 50px;
 }
+.border-enigma-4 {
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  bottom: 30px;
+  border: 2px solid black;
+  margin: 100px 0;
+  width: 200px;
+  height: 400px;
+}
 
 .era {
   height: 10vh;
@@ -188,6 +226,7 @@ export default {
 }
 
 .era-title {
+  width: 50vw;
   color: black;
   background-color: aliceblue;
   padding: 10px 30px;
