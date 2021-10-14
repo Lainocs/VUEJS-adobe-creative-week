@@ -2,11 +2,14 @@
     <div class="card">
         <div class="squelette">
             <!-- à remplacer par des images -->
-            <p v-if="era == 'Victorienne'">IMAGE DE SQUELETTE avec chiffres cachés '841'</p>
-            <p v-if="era == 'Années 60'">IMAGE DE MANNEQUIN avec chiffres cachés '326'</p>
+            <p v-if="era == 'Victorienne'">Entrez votre code à 6 chiffes</p>
+        </div>
+        <div class="squelette">
+            <!-- à remplacer par des images -->
+            <p v-if="era == 'Années 60'">Regardez bien autour de vous</p>
         </div>
     
-        <input type="text" maxlength="6" v-model="code">
+        <input v-if="era =='Victorienne'" type="text" maxlength="6" v-model="code">
         <div v-if="error == true">
             Le code de la boîte est faux
         </div>

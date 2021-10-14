@@ -1,19 +1,37 @@
 <template>
-
   <div class="screen">
-    <div id="content">
-      <div @click="clicked1" class="border-enigma-1" v-if="enigma == 0 && era == 'Victorienne' && border1 == true"></div>
-      <Hangman @enigma="getEnigma" v-if="enigma == 0 && view1 == true && era == 'Victorienne' && border1 == false" :era="era"/>
+    <div v-if="game == false">
 
-      <div @click="clicked2" class="border-enigma-2" v-if="enigma == 1 && era == 'Victorienne' && border2 == true"></div>
-      <Enigma1 @enigma="getEnigma" v-if="enigma == 1 && view2 == true" :era="era" />
 
-      <div @click="clicked3" class="border-enigma-3" v-if="enigma == 2 && era == 'Années 60' && border3 == true"></div>
-      <Enigma2 @enigma="getEnigma" v-if="enigma == 2 && view3 == true" :era="era" />
+        <div v-if="startMenu">
+
+          <h2>ecran de debut</h2>
+          <button @click="startGame()">START</button>
+
+        </div>
+
+
+        <div v-if="endMenu">
+          ecran de fin
+        </div>
     </div>
-    <div class="era">
-      {{era}}
-      <button @click="changeEra">CHANGER D'EPOQUE</button>
+    <div v-else>
+      <div id="content">
+        <div class="era-title">{{era}}</div>
+        <div @click="clicked1" class="border-enigma-1" v-if="enigma == 0 && era == 'Victorienne' && border1 == true"></div>
+        <Hangman @enigma="getEnigma" v-if="enigma == 0 && view1 == true && era == 'Victorienne' && border1 == false" :era="era"/>
+
+        <div @click="clicked2" class="border-enigma-2" v-if="enigma == 1 && era == 'Victorienne' && border2 == true"></div>
+        <Enigma1 @enigma="getEnigma" v-if="enigma == 1 && view2 == true" :era="era" />
+
+        <img v-if="enigma == 2" :src="bijoux" alt="bijoux" style="width: 500px; height: auto;">
+
+        <div @click="clicked3" class="border-enigma-3" v-if="enigma == 2 && era == 'Années 60' && border3 == true"></div>
+        <Enigma2 @enigma="getEnigma" v-if="enigma == 2 && view3 == true" :era="era" />
+      </div>
+      <div class="era">
+        <button @click="changeEra">Voyager dans le temps</button>
+      </div>
     </div>
   </div>
   
@@ -34,6 +52,12 @@ export default {
   },
   data() {
     return {
+      game: false,
+      startMenu: true,
+      endMenu: false,
+
+      bijoux: "/img/bijoux.7b77d87b.jpeg",
+
       era: 'Victorienne',
       enigma: 0,
 
@@ -48,11 +72,18 @@ export default {
     }
   },
   methods: {
+    startGame() {
+      document.getElementById("app").style.backgroundImage = "url('/img/musee.5735396c.jpg')";
+      this.game = true
+      this.startMenu = false
+    },
     changeEra() {
       if(this.era == 'Victorienne') {
         this.era = 'Années 60'
+        document.getElementById("app").style.backgroundImage = "url('/img/60.7827e09b.jpg')";
       } else if(this.era == 'Années 60') {
         this.era = 'Victorienne'
+        document.getElementById("app").style.backgroundImage = "url('/img/musee.5735396c.jpg')";
       }
     },
     getEnigma(value) {
@@ -89,9 +120,11 @@ export default {
   height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url('assets/musee.jpg');
+  background-image: url('assets/salon.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: bottom;
+  background-attachment: fixed;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -100,8 +133,8 @@ export default {
 }
 
 .screen {
-  height: 90vh;
-  width: 90vw;
+  height: 100vh;
+  width: 100vw;
   flex-direction: column;
   margin: auto;
   display: flex;
@@ -114,36 +147,61 @@ export default {
 }
 
 .border-enigma-1 {
+  cursor: pointer;
   position: absolute;
-  left: 40vw;
-  top: 10vh;
+  right: 580px;
+  bottom: 150px;
   border: 2px solid black;
   margin: 100px 0;
-  width: 10vw;
-  height: 20vh;
+  width: 80px;
+  height: 80px;
 }
 
 .border-enigma-2 {
+  cursor: pointer;
   position: absolute;
-  left: 60vw;
-  bottom: 10vh;
+  left: 370px;
+  bottom: -20px;
   border: 2px solid black;
   margin: 100px 0;
-  width: 10vw;
-  height: 10vh;
+  width: 80px;
+  height: 50px;
 }
 
 .border-enigma-3 {
+  cursor: pointer;
   position: absolute;
-  left: 60vw;
-  bottom: 10vh;
+  right: 360px;
+  bottom: 50px;
   border: 2px solid black;
   margin: 100px 0;
-  width: 5vw;
-  height: 60vh;
+  width: 90px;
+  height: 50px;
 }
 
 .era {
   height: 10vh;
+  width: 40vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
 }
+
+.era-title {
+  color: black;
+  background-color: aliceblue;
+  padding: 10px 30px;
+}
+
+.era button {
+  cursor: pointer;
+  color: black;
+  border-radius: 5px;
+  background-color: aliceblue;
+  padding: 20px;
+}
+.era button:hover {
+  background-color: rgb(226, 233, 240);
+}
+
 </style>
