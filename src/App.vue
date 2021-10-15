@@ -174,6 +174,10 @@ h2 {
   font-weight: bold;
 }
 
+p {
+    font-size: 22px;
+}
+
 #app {
   width: 100vw;
   height: 100vh;
