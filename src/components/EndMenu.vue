@@ -1,5 +1,5 @@
 <template>
-    <h2>ecran de fin</h2>
+    <h2> GAME OVER </h2>
     <button>CONGRAT</button>
 </template>
 
@@ -8,3 +8,7 @@
         name: 'EndMenu'
     }
 </script>
+
+<style>
+    
+</style>

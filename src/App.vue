@@ -5,7 +5,7 @@
         <div v-if="startMenu">
 
           <StartMenu />
-          <button class="start-button" @click="startGame()">START</button>
+          <button class="start-button" @click="startGame()"> Lance le jeu ! </button>
 
         </div>
 
@@ -39,7 +39,11 @@
 
       </div>
       <div class="era">
-        <button @click="changeEra">Voyager dans le temps</button>
+        <button @click="changeEra">Changer d'époque</button>
+      </div>
+
+      <div class="inventory">
+        
       </div>
     </div>
   </div>
@@ -72,7 +76,7 @@ export default {
       bijoux: "/img/bijoux.7b77d87b.jpeg",
       key: "",
 
-      era: 'Victorienne',
+      era: 'Époque victorienne',
       enigma: 0,
 
       border1: true,
@@ -90,17 +94,17 @@ export default {
   methods: {
 
     startGame() {
-        document.getElementById("app").style.backgroundImage = "url('/img/musee.5735396c.jpg')";
+        document.getElementById("app").style.backgroundImage = "url('assets/victorienne.png')";
         this.game = true
         this.startMenu = false
     },
     changeEra() {
-      if(this.era == 'Victorienne') {
+      if(this.era == 'Époque victorienne') {
         this.era = 'Années 60'
-        document.getElementById("app").style.backgroundImage = "url('/img/60.7827e09b.jpg')";
+        document.getElementById("app").style.backgroundImage = "url('assets/60.png')";
       } else if(this.era == 'Années 60') {
-        this.era = 'Victorienne'
-        document.getElementById("app").style.backgroundImage = "url('/img/musee.5735396c.jpg')";
+        this.era = 'Époque victorienne'
+        document.getElementById("app").style.backgroundImage = "url('assets/victorienne.png')";
       }
     },
     getEnigma(value) {
@@ -132,10 +136,31 @@ export default {
 </script>
 
 <style>
+@font-face {
+  font-family: 'headline_font';
+  src: local('headline_font'), url('assets/fonts/Academy_Engraved_LET.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'body_font';
+  src: local('body_font'), url('assets/fonts/Athelas-Regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'body_font';
+  src: local('body_font'), url('assets/fonts/Athelas-Bold.woff') format('woff');
+  font-weight: bold;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 2px #44371a;
+  font-family: "body_font";
 }
 
 #app {
@@ -143,16 +168,16 @@ export default {
   height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url('assets/salon.jpg');
+  background-image: url('assets/mordern_room.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
   background-attachment: fixed;
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "body_font";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #ffffff;
 }
 
 .screen {
@@ -166,8 +191,26 @@ export default {
 }
 
 .start-button {
-  width: 10vw;
-  height: 10vh;
+  padding: 30px 50px;
+  background: rgba(94, 85, 67, 0.164);
+  box-shadow: 1px 1px 5px rgb(77, 77, 77);
+  border: none;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.39);
+  font-family: "body_font";
+  font-size: 30px;
+  font-weight: bold;
+  animation: ease-in-out;
+  transition: 0.5s;
+}
+.start-button:hover {
+  background: rgba(94, 85, 67, 0.63);
+  border: none;
+  color: white;
+  font-family: "body_font";
+  font-size: 32px;
+  font-weight: bold;
+  padding: 30px 50px
 }
 
 #content {
@@ -227,20 +270,31 @@ export default {
 
 .era-title {
   width: 50vw;
-  color: black;
-  background-color: aliceblue;
-  padding: 10px 30px;
+  color: rgb(199, 152, 0);
+  background-color: rgba(129, 95, 1, 0.397);
+  padding: 10px;
+
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .era button {
   cursor: pointer;
-  color: black;
+  color: white;
+  border: none;
   border-radius: 5px;
-  background-color: aliceblue;
-  padding: 20px;
+  background-color: #432E00;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-family: "body_font";
+  font-weight: bold;
+  transition: 0.3s;
 }
 .era button:hover {
-  background-color: rgb(226, 233, 240);
+  background-color: #5e4000;
+  box-shadow: 1px 1px 5px rgb(29, 17, 0);
+  font-size: 25px;
+
 }
 
 </style>
