@@ -34,7 +34,7 @@
         <div @click="clicked3" class="border-enigma-3" v-if="enigma == 2 && era == 'Années 60' && border3 == true"></div>
         <Enigma2 @enigma="getEnigma" v-if="enigma == 2 && view3 == true" :era="era" />
 
-        <img v-if="enigma == 3" :src="key" alt="key" style="width: 500px; height: auto;">
+        <img class="key" v-if="enigma == 3" :src="key" alt="key">
 
         <div @click="clicked4" class="border-enigma-4" v-if="enigma == 3 && era == 'Années 60' && border4 == true"></div>
 
@@ -76,7 +76,7 @@ export default {
       endMenu: false,
 
       bijoux: "https://github.com/Lainocs/adobe-creative-week/blob/main/src/assets/bijoux_interieur.png?raw=true",
-      key: "",
+      key: "https://github.com/Lainocs/adobe-creative-week/blob/lucas/src/assets/victorian_key.png?raw=true",
 
       era: 'Époque victorienne',
       enigma: 0,
@@ -255,7 +255,6 @@ h1 {
   margin: 100px 0;
   width: 90px;
   height: 50px;
-  border: 1px solid red;
 }
 .border-enigma-4 {
   cursor: pointer;
@@ -275,9 +274,17 @@ h1 {
   justify-content: space-around;
 }
 
+.key {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  right: 50px;
+  top: 50px;
+}
+
 .era-title {
   width: 50vw;
-  color: rgb(199, 152, 0);
+  color: rgb(253, 253, 253);
   background-color: rgba(129, 95, 1, 0.397);
   padding: 10px;
 

@@ -1,6 +1,6 @@
 <template>
 
-    <img src="https://cdn.discordapp.com/attachments/897484850414628914/898475488681549844/logo.png" alt="logo Timeless Enigma" width="400px" height="400px">
+    <img class="logo" src="https://github.com/Lainocs/adobe-creative-week/blob/lucas/src/assets/logo.png?raw=true" alt="logo Timeless Enigma">
     <h1> Bienvenue dans le jeu Timeless Enigma ! </h1>
 
 </template>
@@ -12,5 +12,10 @@
 </script>
 
 <style>
+
+.logo {
+    width: 300px;
+    height: auto;
+}
 
 </style>
