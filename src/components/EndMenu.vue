@@ -1,6 +1,7 @@
 <template>
-    <h2> Partie terminée </h2>
-    <p> Félicitation ! Vous êtes sorti du piège temporel grâce à votre patience et votre intellect !</p>
+    <h2 id="game_over"> Vous avez échappé au piège temporel </h2>
+    <br/>
+    <p> Félicitations ! Grâce à votre patience et votre intellect, vous avez pu vous en sortir ! <br/> Repos mérité, cher joueur.</p>
 </template>
 
 <script>
@@ -10,5 +11,8 @@
 </script>
 
 <style>
-    
+    #game_over {
+        color: white;
+        font-size: 40px;
+    }
 </style>
