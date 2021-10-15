@@ -1,6 +1,6 @@
 <template>
-    <h2> GAME OVER </h2>
-    <button>CONGRAT</button>
+    <h2> Partie terminée </h2>
+    <p> Félicitation ! Vous êtes sorti du piège temporel grâce à votre patience et votre intellect !</p>
 </template>
 
 <script>
