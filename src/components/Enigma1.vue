@@ -30,7 +30,7 @@
         },
         methods: {
             verifyCode() {
-                if (this.code == 841326) {
+                if (this.code == 483764) {
                     this.error = false
                     this.$emit('enigma', '2')
                     this.$emit('view2', false)

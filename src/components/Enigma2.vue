@@ -1,10 +1,10 @@
 <template>
     <div class="card">
         <div class="colors">
-            <div>croix</div>
-            <div>carré</div>
-            <div>rond</div>
-            <div>triangle</div>
+            <div>bague</div>
+            <div>montre</div>
+            <div>bracelets</div>
+            <div>boucles</div>
         </div>
         <div class="colors">
             <input type="button" @click="changeColor1()" id="color1" style="background-color: blue; width: 40px; height: 40px;">
@@ -117,6 +117,7 @@
         background-color: rgba(322, 322, 322, 0.5);
     }
     .colors {
+        color: black;
         display: flex;
         width: 100%;
         justify-content: space-around;

@@ -23,8 +23,9 @@
         <div class="era-title">{{era}}</div>
         <div @click="clicked1" class="border-enigma-1" v-if="enigma == 0 && era == 'Époque victorienne' && border1 == true"></div>
         <Hangman @enigma="getEnigma" v-if="enigma == 0 && view1 == true && era == 'Époque victorienne' && border1 == false" :era="era"/>
-        <img v-if="era == 'Victorienne'" src="" alt="">
-        <img v-if="era == 'Années 60'" src="" alt="">
+        
+        <img class="numbers-60" v-if="era == 'Années 60'" :src="numbers60" alt="numbers-60">
+        
         <div @click="clicked2" class="border-enigma-2" v-if="enigma == 1 && era == 'Époque victorienne' && border2 == true"></div>
         <Enigma1 @enigma="getEnigma" v-if="enigma == 1 && view2 == true" :era="era" />
 
@@ -69,15 +70,16 @@ export default {
   },
   data() {
     return {
+      numbers60: "https://github.com/Lainocs/adobe-creative-week/blob/main/src/assets/chiffres_60.png?raw=true",
       game: false,
       startMenu: true,
       endMenu: false,
 
-      bijoux: "/img/bijoux.7b77d87b.jpeg",
+      bijoux: "https://github.com/Lainocs/adobe-creative-week/blob/main/src/assets/bijoux_interieur.png?raw=true",
       key: "",
 
       era: 'Époque victorienne',
-      enigma: 1,
+      enigma: 0,
 
       border1: true,
       view1: false,
@@ -94,7 +96,7 @@ export default {
   methods: {
 
     startGame() {
-        document.getElementById("app").style.backgroundImage = "url('https://github.com/Lainocs/adobe-creative-week/blob/main/src/assets/victorienne.png?raw=true')";
+        document.getElementById("app").style.backgroundImage = "url('https://github.com/Lainocs/adobe-creative-week/blob/lucas/src/assets/victorienne.png?raw=true')";
         this.game = true
         this.startMenu = false
     },
@@ -104,7 +106,7 @@ export default {
         document.getElementById("app").style.backgroundImage = "url('https://github.com/Lainocs/adobe-creative-week/blob/main/src/assets/60.png?raw=true')";
       } else if(this.era == 'Années 60') {
         this.era = 'Époque victorienne'
-        document.getElementById("app").style.backgroundImage = "url('https://github.com/Lainocs/adobe-creative-week/blob/main/src/assets/victorienne.png?raw=true')";
+        document.getElementById("app").style.backgroundImage = "url('https://github.com/Lainocs/adobe-creative-week/blob/lucas/src/assets/victorienne.png?raw=true')";
       }
     },
     getEnigma(value) {
@@ -217,6 +219,14 @@ h1 {
   min-height: 80vh;
 }
 
+.numbers-60 {
+  position: absolute;
+  top: 350px;
+  left: 480px;
+  width: 10px;
+  height: auto;
+}
+
 .border-enigma-1 {
   cursor: pointer;
   position: absolute;
@@ -240,11 +250,12 @@ h1 {
 .border-enigma-3 {
   cursor: pointer;
   position: absolute;
-  right: 360px;
+  right: 400px;
   bottom: 50px;
   margin: 100px 0;
   width: 90px;
   height: 50px;
+  border: 1px solid red;
 }
 .border-enigma-4 {
   cursor: pointer;
