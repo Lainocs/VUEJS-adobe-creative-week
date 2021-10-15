@@ -23,7 +23,8 @@
         <div class="era-title">{{era}}</div>
         <div @click="clicked1" class="border-enigma-1" v-if="enigma == 0 && era == 'Époque victorienne' && border1 == true"></div>
         <Hangman @enigma="getEnigma" v-if="enigma == 0 && view1 == true && era == 'Époque victorienne' && border1 == false" :era="era"/>
-
+        <img v-if="era == 'Victorienne'" src="" alt="">
+        <img v-if="era == 'Années 60'" src="" alt="">
         <div @click="clicked2" class="border-enigma-2" v-if="enigma == 1 && era == 'Époque victorienne' && border2 == true"></div>
         <Enigma1 @enigma="getEnigma" v-if="enigma == 1 && view2 == true" :era="era" />
 
@@ -76,7 +77,7 @@ export default {
       key: "",
 
       era: 'Époque victorienne',
-      enigma: 0,
+      enigma: 1,
 
       border1: true,
       view1: false,
@@ -93,17 +94,17 @@ export default {
   methods: {
 
     startGame() {
-        document.getElementById("app").style.backgroundImage = "url('assets/Époque victorienne.png')";
+        document.getElementById("app").style.backgroundImage = "url('https://github.com/Lainocs/adobe-creative-week/blob/main/src/assets/victorienne.png?raw=true')";
         this.game = true
         this.startMenu = false
     },
     changeEra() {
       if(this.era == 'Époque victorienne') {
         this.era = 'Années 60'
-        document.getElementById("app").style.backgroundImage = "url('assets/60.png')";
+        document.getElementById("app").style.backgroundImage = "url('https://github.com/Lainocs/adobe-creative-week/blob/main/src/assets/60.png?raw=true')";
       } else if(this.era == 'Années 60') {
         this.era = 'Époque victorienne'
-        document.getElementById("app").style.backgroundImage = "url('assets/Époque victorienne.png')";
+        document.getElementById("app").style.backgroundImage = "url('https://github.com/Lainocs/adobe-creative-week/blob/main/src/assets/victorienne.png?raw=true')";
       }
     },
     getEnigma(value) {
@@ -126,7 +127,7 @@ export default {
     },
     clicked4() {
       this.border3 = false
-      document.getElementById("app").style.backgroundImage = "url('/img/salon.5d04a135.jpg')";
+      document.getElementById("app").style.backgroundImage = "url('https://github.com/Lainocs/adobe-creative-week/blob/main/src/assets/mordern_room.png?raw=true')";
       this.game = false
       this.endMenu = true
     },
@@ -167,7 +168,7 @@ h1 {
   height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url('assets/mordern_room.png');
+  background-image: url('https://github.com/Lainocs/adobe-creative-week/blob/main/src/assets/mordern_room.png?raw=true');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -219,9 +220,8 @@ h1 {
 .border-enigma-1 {
   cursor: pointer;
   position: absolute;
-  right: 580px;
-  bottom: 150px;
-  border: 2px solid black;
+  left: 230px;
+  bottom: 70px;
   margin: 100px 0;
   width: 80px;
   height: 80px;
@@ -230,12 +230,11 @@ h1 {
 .border-enigma-2 {
   cursor: pointer;
   position: absolute;
-  left: 370px;
-  bottom: -20px;
-  border: 2px solid black;
+  left: 500px;
+  top: 90px;
   margin: 100px 0;
-  width: 80px;
-  height: 50px;
+  width: 30px;
+  height: 60px;
 }
 
 .border-enigma-3 {
@@ -243,7 +242,6 @@ h1 {
   position: absolute;
   right: 360px;
   bottom: 50px;
-  border: 2px solid black;
   margin: 100px 0;
   width: 90px;
   height: 50px;
@@ -253,7 +251,6 @@ h1 {
   position: absolute;
   right: 20px;
   bottom: 30px;
-  border: 2px solid black;
   margin: 100px 0;
   width: 200px;
   height: 400px;
