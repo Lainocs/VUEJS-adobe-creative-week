@@ -31,7 +31,7 @@
                 </svg>
             </div>
         </div>
-        <div>
+        <div class="historique_letterinput">
         {{console}}
         </div>
     </div>
@@ -107,10 +107,21 @@
         display: flex;
         justify-content: center;
         padding: 30px;
+        color: black;
+        font-size: 22px;
+        font-weight: bold;
     }
     .possibleLetter {
+        font-weight: bold;
         padding: 10px;
         margin: 10px;
+        color: rgb(61, 37, 0);
+        font-size: 20px;
         border: 2px solid black;
+    }
+    .historique_letterinput {
+        color: rgb(61, 37, 0);
+        font-weight: bold;
+        font-size: 22px;
     }
 </style>

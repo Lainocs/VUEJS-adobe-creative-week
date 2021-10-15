@@ -163,6 +163,15 @@ h1 {
   margin-bottom: 30px;
   text-shadow: 2px 2px 2px #44371a;
   font-family: "body_font";
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 24px;
+  color: #44371a;
+  text-shadow: 1px 1px 2px #44371a;
+  font-family: "body_font";
+  font-weight: bold;
 }
 
 #app {
@@ -283,11 +292,11 @@ h1 {
 }
 
 .era-title {
+  margin: 0 auto;
   width: 50vw;
   color: rgb(253, 253, 253);
   background-color: rgba(129, 95, 1, 0.397);
   padding: 10px;
-
   font-size: 24px;
   font-weight: bold;
 }
