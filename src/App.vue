@@ -21,7 +21,6 @@
     <div v-else>
       <div id="content">
         <div class="era-title">{{era}}</div>
-        {{enigma}}
         <div @click="clicked1" class="border-enigma-1" v-if="enigma == 0 && era == 'Victorienne' && border1 == true"></div>
         <Hangman @enigma="getEnigma" v-if="enigma == 0 && view1 == true && era == 'Victorienne' && border1 == false" :era="era"/>
 
