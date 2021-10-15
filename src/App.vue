@@ -5,7 +5,7 @@
         <div v-if="startMenu">
 
           <StartMenu />
-          <button class="start-button" @click="startGame()"> Lance le jeu ! </button>
+          <button class="start-button" @click="startGame()"> Saute dans le temps ! </button>
 
         </div>
 
