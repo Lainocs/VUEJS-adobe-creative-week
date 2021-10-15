@@ -22,10 +22,10 @@
       <div id="content">
         <div class="era-title">{{era}}</div>
         {{enigma}}
-        <div @click="clicked1" class="border-enigma-1" v-if="enigma == 0 && era == 'Victorienne' && border1 == true"></div>
-        <Hangman @enigma="getEnigma" v-if="enigma == 0 && view1 == true && era == 'Victorienne' && border1 == false" :era="era"/>
+        <div @click="clicked1" class="border-enigma-1" v-if="enigma == 0 && era == 'Époque victorienne' && border1 == true"></div>
+        <Hangman @enigma="getEnigma" v-if="enigma == 0 && view1 == true && era == 'Époque victorienne' && border1 == false" :era="era"/>
 
-        <div @click="clicked2" class="border-enigma-2" v-if="enigma == 1 && era == 'Victorienne' && border2 == true"></div>
+        <div @click="clicked2" class="border-enigma-2" v-if="enigma == 1 && era == 'Époque victorienne' && border2 == true"></div>
         <Enigma1 @enigma="getEnigma" v-if="enigma == 1 && view2 == true" :era="era" />
 
         <img v-if="enigma == 2" :src="bijoux" alt="bijoux" style="width: 500px; height: auto;">
@@ -94,7 +94,7 @@ export default {
   methods: {
 
     startGame() {
-        document.getElementById("app").style.backgroundImage = "url('assets/victorienne.png')";
+        document.getElementById("app").style.backgroundImage = "url('assets/Époque victorienne.png')";
         this.game = true
         this.startMenu = false
     },
@@ -104,7 +104,7 @@ export default {
         document.getElementById("app").style.backgroundImage = "url('assets/60.png')";
       } else if(this.era == 'Années 60') {
         this.era = 'Époque victorienne'
-        document.getElementById("app").style.backgroundImage = "url('assets/victorienne.png')";
+        document.getElementById("app").style.backgroundImage = "url('assets/Époque victorienne.png')";
       }
     },
     getEnigma(value) {
