@@ -1,10 +1,10 @@
 <template>
     <div class="card">
         <div class="colors">
-            <div>bague</div>
-            <div>montre</div>
-            <div>bracelets</div>
-            <div>boucles</div>
+            <div>Bague</div>
+            <div>Montre</div>
+            <div>Bracelets</div>
+            <div>Boucles d'oreille</div>
         </div>
         <div class="colors">
             <input type="button" @click="changeColor1()" id="color1" style="background-color: blue; width: 40px; height: 40px;">
@@ -117,9 +117,20 @@
         background-color: rgba(322, 322, 322, 0.5);
     }
     .colors {
-        color: black;
+        color: rgb(34, 34, 34);
+        font-size: 20px;
+        font-weight: bold;
         display: flex;
         width: 100%;
-        justify-content: space-around;
+        justify-content: space-between;
+    }
+    #color1, #color2, #color3, #color4{
+        border-radius: 50%;
+        border: none;
+        box-shadow: none;
+        transition: 0.2s;
+    }
+    #color1:hover, #color2:hover, #color3:hover, #color4:hover{
+        box-shadow: 3px 3px 3px rgb(105, 105, 105);
     }
 </style>
